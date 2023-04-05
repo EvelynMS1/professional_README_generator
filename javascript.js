@@ -3,14 +3,16 @@
 //first question project title type:String
 //Second question project Description will have several questions within it 4  type:String 
 //third question 
-//fetch api license information 
+//fetch api license information ]
 
+//calling export from generateMarkdwon file
+const generateMarkdown = require('./generateMarkdown');
+//setting up inquirer and file system
 const inquirer = require('inquirer');
 const fs = require('fs');
-//use the file system 
-//question part is an object containing type message and name 
-inquirer
-.prompt([
+
+
+const questions = [
     { 
     name: 'projectTitle', 
     message: 'What is the title of your project ',
@@ -58,22 +60,55 @@ inquirer
     message:'List features that your project has',
     type:'input',
     },
-   
-
-]).then(answers => {
-    //Create a README file that will contain answers object
-    //Format the README file  
-console.log(answers);
-fs.writeFile('README.md', dataformat(answers),(err)=>{
+]
+function createReadmefile(filename,questions){
+    return fs.writeFile(filename,questions,(err)=>{
     if(err){
         return console.log(err);
     }
     console.log('success');
 })
+}
+
+function startInquirerQuestions(){
+inquirer
+.prompt(questions)
+.then(answers => {
+    createReadmefile('README.md', generateMarkdown({...answers}));
+    console.log(answers);
+
 });
+}
+
+startInquirerQuestions();
+
 //Function that will take the answers and create a literal
 //create function tha{t will take the data from this prompt and then use it into a literal 
-function dataformat(answers){
-    return ``
+// function generateMarkdown(answers){
 
-}
+// return `hello
+//     ${answers.tOC}
+
+//    [${answers.projectTitle}](#${answers.projectTitle})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+// # ${answers.projectTitle}
+// `
+
+// }
