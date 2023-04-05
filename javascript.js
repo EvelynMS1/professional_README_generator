@@ -42,11 +42,6 @@ inquirer
     type:'input',
     },
     {
-    name:'image',
-    message:'please provide image file name',
-    type:'input',
-    },
-    {
     name:'credits',
     message:'If you used external sources add the links to Github profiles, third party primary web content, tutorials that aided the development of your project',
     type:'input',
@@ -69,7 +64,7 @@ inquirer
     //Create a README file that will contain answers object
     //Format the README file  
 console.log(answers);
-fs.writeFile('answers.json', JSON.stringify(answers,null,2),(err)=>{
+fs.writeFile('README.md', dataformat(answers),(err)=>{
     if(err){
         return console.log(err);
     }
@@ -77,4 +72,8 @@ fs.writeFile('answers.json', JSON.stringify(answers,null,2),(err)=>{
 })
 });
 //Function that will take the answers and create a literal
-//create function that will take the data from this prompt and then use it into a literal 
+//create function tha{t will take the data from this prompt and then use it into a literal 
+function dataformat(answers){
+    return ``
+
+}
