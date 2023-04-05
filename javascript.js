@@ -11,7 +11,7 @@ const generateMarkdown = require('./generateMarkdown');
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-
+//array of objects that will be used within the inquirer prompt function startInquirerQuestions
 const questions = [
     { 
     name: 'projectTitle', 
@@ -69,10 +69,9 @@ function createReadmefile(filename,questions){
     console.log('success');
 })
 }
-
+//startInquirerQuestions function using questions as parameter, in promise then calls createReadmefile function readme with param file name and questions (aka data) generateMarkdown literal with answers
 function startInquirerQuestions(){
-inquirer
-.prompt(questions)
+inquirer.prompt(questions)
 .then(answers => {
     createReadmefile('README.md', generateMarkdown({...answers}));
     console.log(answers);
