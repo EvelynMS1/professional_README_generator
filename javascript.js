@@ -20,12 +20,11 @@ const questions = [
     },
     {
     name:'description',
-    message:`Provide a short description explaining the what, why, and how of your project.\n Use the following questions as a guide What was your motivation?
+    message:
+    `Provide a short description explaining the what, why, and how of your project.\n Use the following questions as a guide What was your motivation?
     -Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
     - What problem does it solve?
-    - What did you learn?
-    
-     `,
+    - What did you learn?`,
     type:'input'
     },
     {
@@ -73,7 +72,7 @@ function createReadmefile(filename,questions){
 function startInquirerQuestions(){
 inquirer.prompt(questions)
 .then(answers => {
-    createReadmefile('README.md', generateMarkdown({...answers}));
+    createReadmefile('README.md', generateMarkdown(answers));
     console.log(answers);
 
 });
