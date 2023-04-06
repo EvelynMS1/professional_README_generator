@@ -20,15 +20,23 @@ if (license != '') {
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
     if(license != ''){
-     `  this readme has 
+     return `  this readme has 
 
-        ${data.license} license`  
+        ${license} license`  
     } else {
         ``
     };
 
    
 }
+function renderGithubLink(gitHubName)  {
+    if(gitHubName != ''){
+     return `[Github](https://github.com/${gitHubName})`  
+    } else {
+        ``
+    }; 
+}
+
 
 // TODO: Create a function to generate markdown for README
 //literal implementation for readme
@@ -44,6 +52,7 @@ function generateMarkdown(data) {
 - [Usage](#usage)
 - [Credits](#credits)
 - ${renderLicenseLink(data.license)}
+- [Questions](#Questions)
 
 ## Installation
 
@@ -85,7 +94,8 @@ Go the extra mile and write tests for your application. Then provide examples on
 [How to create a Professional README](https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide)
 
 ## Questions
-
+${renderGithubLink(data.gitHubName)}
+${data.emailaddy}
 `;
 }
 

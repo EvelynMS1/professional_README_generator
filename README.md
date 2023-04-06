@@ -1,33 +1,35 @@
 
-  # gen
+  # geb ![license](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ## Description
- geg
+ xfxvsd
 ## Table of Contents 
 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
-- [License](#license)
+- [license](#license)
 
 ## Installation
 
- gege
+ sdfsf
 
 ## Usage
 
- egeg
+ sfsdf
 
 ## Credits
 
 
- geg
+ fsdfs
 
 ## License
 
- MIT
+  this readme has 
 
- ![license](https://img.shields.io/badge/license-MIT-blue.svg)
+        MIT license
+
+ 
 ## Badges
  MIT
 

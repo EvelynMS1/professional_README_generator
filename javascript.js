@@ -27,11 +27,11 @@ const questions = [
     - What did you learn?`,
     type:'input'
     },
-    {
-    name:'tOC',
-    message:'Would you like to implement a table of contents',
-    type:'confirm',
-    },
+    // {
+    // name:'tOC',
+    // message:'Would you like to implement a table of contents',
+    // type:'confirm',
+    // },
     {
     name: 'installation',
     message:'Does your project require steps for installation, if so please provide a step by step description',
@@ -59,6 +59,16 @@ const questions = [
     message:'List features that your project has',
     type:'input',
     },
+    {
+    name:'gitHubName',
+    message:'What is your github username?',
+    type: 'input',
+    },
+    {
+    name:'emailaddy',
+    message:'What is your email address?',
+    type:'input'
+    }
 ]
 function createReadmefile(filename,questions){
     return fs.writeFile(filename,questions,(err)=>{
