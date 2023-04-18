@@ -5,7 +5,7 @@
 //third question 
 //fetch api license information ]
 
-//calling export from generateMarkdwon file
+//calling export from generateMarkdown file
 const generateMarkdown = require('./generateMarkdown');
 //setting up inquirer and file system
 const inquirer = require('inquirer');
@@ -15,16 +15,18 @@ const fs = require('fs');
 const questions = [
     { 
     name: 'projectTitle', 
-    message: 'What is the title of your project ',
+    message: 'What is the title of your project? ',
     type:'input',
     },
     {
     name:'description',
     message:
-    `Provide a short description explaining the what, why, and how of your project.\n Use the following questions as a guide What was your motivation?
-    -Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-    - What problem does it solve?
-    - What did you learn?`,
+    `Provide a short description explaining the what, why, and how of your project.\n Use the following questions as a guide,
+    -What was your motivation?
+    -Why did you build this project? 
+    -What problem does it solve?
+    -What did you learn?
+    `,
     type:'input'
     },
     // {
@@ -34,42 +36,47 @@ const questions = [
     // },
     {
     name: 'installation',
-    message:'Does your project require steps for installation, if so please provide a step by step description',
+    message:`Does your project require steps for installation, if so please provide a step by step description.
+    `,
     type:'input',
     },
     {
     name: 'usage',
-    message:'Please provide instructions and examples for use',
+    message:'Please provide instructions and examples for use:',
     type:'input',
     },
     {
     name:'credits',
-    message:'If you used external sources add the links to Github profiles, third party primary web content, tutorials that aided the development of your project',
+    message:'If you used external sources, third party primary web content, tutorials that aided the development of your project please provide them:',
     type:'input',
     },
     {
-        //taken from api github to provide license options
+       
     name:'license',
     message:'Select the license for your project',
     type:'rawlist',
-    choices: ['MIT', 'APACHE 2.0', 'GPL 3.0', 'BSD 3', 'None'],
+    choices: ['MIT', 'Apache_2.0', 'GPLv3', 'BSD_3--Clause', 'None'],
     },
     {
     name:'features',
-    message:'List features that your project has',
+    message:'List features that your project has.',
     type:'input',
     },
     {
     name:'gitHubName',
-    message:'What is your github username?',
+    message:`What is your github username?
+    `
+    ,
     type: 'input',
     },
     {
     name:'emailaddy',
-    message:'What is your email address?',
+    message:`What is your email address?
+    `,
     type:'input'
     }
 ]
+//function that creates a README file with file name parameter and data parameter
 function createReadmefile(filename,questions){
     return fs.writeFile(filename,questions,(err)=>{
     if(err){
@@ -82,6 +89,7 @@ function createReadmefile(filename,questions){
 function startInquirerQuestions(){
 inquirer.prompt(questions)
 .then(answers => {
+    //calls file creator function, and template literal function 
     createReadmefile('README.md', generateMarkdown(answers));
     console.log(answers);
 

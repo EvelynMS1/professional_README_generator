@@ -1,34 +1,38 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
+//Function that returns a license badge based on the license passed
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-    if (license != ''){ 
+    if (license != 'None'){ 
         return `![license](https://img.shields.io/badge/license-${license}-blue.svg)`
-    } else { ``};
+    } else {return``};
    
 }
 
-// TODO: Create a function that returns the license link
+//Function that returns the license link
 // If there is no license, return an empty string
-//added to table of contents
 function renderLicenseLink(license) {
-if (license != '') {
-   return `[license](#license)` ;
-} else { ``};
+    if(license){  
+        return `[license](#license)`}
+  ;
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
+
+//verify the type of license based on the license provide a short description
 function renderLicenseSection(license) {
-    if(license != ''){
-     return `  this readme has 
-
-        ${license} license`  
+    if(license != 'None'){
+     return ` This project is licensed under the terms of the ${license} license`  
     } else {
-        ``
-    };
-
-   
+       return ``
+    }; 
 }
+//Create a section in badge section
+function renderBadgeSection(license){
+    if(license != 'None'){
+        return `${license} license`  
+       } else {
+          return ``
+       }; 
+}
+//Creates a section with github link 
 function renderGithubLink(gitHubName)  {
     if(gitHubName != ''){
      return `[Github](https://github.com/${gitHubName})`  
@@ -38,7 +42,7 @@ function renderGithubLink(gitHubName)  {
 }
 
 
-// TODO: Create a function to generate markdown for README
+//function to generate markdown for README
 //literal implementation for readme
 function generateMarkdown(data) {
   return `
@@ -52,7 +56,11 @@ function generateMarkdown(data) {
 - [Usage](#usage)
 - [Credits](#credits)
 - ${renderLicenseLink(data.license)}
-- [Questions](#Questions)
+- [Badges](#badges)
+- [Features](#features)
+- [How-to-Contribute](#how-to-contribute)
+- [Test](#test)
+- [Questions](#questions)
 
 ## Installation
 
@@ -73,29 +81,22 @@ ${renderLicenseSection(data.license)}
 
  
 ## Badges
- ${data.license}
+ ${renderBadgeSection(data.license)}
 
-![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
-
-Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
 
 ## Features
- ${data.feautures}
+ ${data.features}
 
-If your project has a lot of features, list them here.
 
-## How to Contribute
 
-If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
+## How-to-Contribute
 
 ## Tests
 
-Go the extra mile and write tests for your application. Then provide examples on how to run them here.
-[How to create a Professional README](https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide)
-
 ## Questions
-${renderGithubLink(data.gitHubName)}
-${data.emailaddy}
+-${renderGithubLink(data.gitHubName)}
+
+-${data.emailaddy}
 `;
 }
 
