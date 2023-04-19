@@ -47,4 +47,4 @@
 
 ## Questions
 
-![README_Generator_video]("./assets/recording.mp4")
+![README_Generator_video]("professional_README_generator\assets\recording.mp4")
