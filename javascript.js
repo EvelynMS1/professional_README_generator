@@ -90,7 +90,7 @@ function startInquirerQuestions(){
 inquirer.prompt(questions)
 .then(answers => {
     //calls file creator function, and template literal function 
-    createReadmefile('README.md', generateMarkdown(answers));
+    createReadmefile('GeneratedREADME.md', generateMarkdown(answers));
     console.log(answers);
 
 });
